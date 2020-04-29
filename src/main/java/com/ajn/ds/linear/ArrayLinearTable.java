@@ -45,8 +45,8 @@ public class ArrayLinearTable<T> implements LinearTable<T> {
         if (pos > elementData.length - 1) {
             throw new ArrayIndexOutOfBoundsException();
         }
-        for (int i = pos; i < elementData.length - 1; i++) {
-            elementData[i + 1] = elementData[i];
+        for (int i = elementData.length - 1; i > pos; i--) {
+            elementData[i] = elementData[i - 1];
         }
         elementData[pos] = t;
         return true;
