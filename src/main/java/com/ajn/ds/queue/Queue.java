@@ -17,12 +17,12 @@ public interface Queue<T> {
     T remove();
 
     /**
-     * 判断栈是否为空
+     * 判断队列是否为空
      */
     boolean isEmpty();
 
     /**
-     * 打印栈所有数据
+     * 打印队列所有数据
      */
     void print();
 }
