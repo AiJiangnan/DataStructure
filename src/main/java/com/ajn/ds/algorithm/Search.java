@@ -1,6 +1,8 @@
-package com.ajn.ds.search;
+package com.ajn.ds.algorithm;
 
 /**
+ * 查找算法
+ *
  * @author 艾江南
  * @date 4/29/2020
  */
