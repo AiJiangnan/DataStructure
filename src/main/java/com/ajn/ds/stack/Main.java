@@ -7,8 +7,8 @@ package com.ajn.ds.stack;
 public class Main {
 
     static class Peo {
-        private int age;
-        private String name;
+        private final int age;
+        private final String name;
 
         public Peo(int age, String name) {
             this.age = age;

@@ -14,7 +14,7 @@ public class LinkedBinaryTree<T> implements BinaryTree<T> {
     private Node root;
 
     private class Node {
-        private T data;
+        private final T data;
         private Node left;
         private Node right;
 

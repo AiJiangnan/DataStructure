@@ -11,7 +11,7 @@ public interface Stack<T> {
     /**
      * 入栈
      */
-    boolean push(T t);
+    void push(T t);
 
     /**
      * 出栈

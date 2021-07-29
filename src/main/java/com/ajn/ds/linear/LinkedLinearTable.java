@@ -11,23 +11,10 @@ public class LinkedLinearTable<T> implements LinearTable<T> {
     private Node head;
     private int size = 0;
 
-    private class Node {
-        private T t;
-        private Node next;
-
-        public Node() {
-        }
-
-        public Node(T t, Node next) {
-            this.t = t;
-            this.next = next;
-        }
-    }
-
     @Override
-    public LinearTable<T> init(T... t) {
+    public void init(T... t) {
         if (t == null || t.length == 0) {
-            return this;
+            return;
         }
         head = new Node(t[size++], null);
         Node pre = head;
@@ -36,7 +23,6 @@ public class LinkedLinearTable<T> implements LinearTable<T> {
             pre = pre.next;
             size++;
         }
-        return this;
     }
 
     @Override
@@ -45,9 +31,8 @@ public class LinkedLinearTable<T> implements LinearTable<T> {
     }
 
     @Override
-    public boolean clear() {
+    public void clear() {
         head = null;
-        return true;
     }
 
     @Override
@@ -56,7 +41,7 @@ public class LinkedLinearTable<T> implements LinearTable<T> {
     }
 
     @Override
-    public boolean insert(int pos, T t) {
+    public void insert(int pos, T t) {
         if (pos > size) {
             throw new OutOfMemoryError();
         }
@@ -73,11 +58,10 @@ public class LinkedLinearTable<T> implements LinearTable<T> {
             pre.next = n;
         }
         size++;
-        return true;
     }
 
     @Override
-    public boolean delete(int pos) {
+    public void delete(int pos) {
         if (pos > size - 1) {
             throw new OutOfMemoryError();
         }
@@ -91,7 +75,6 @@ public class LinkedLinearTable<T> implements LinearTable<T> {
             pre.next = pre.next.next;
         }
         size--;
-        return true;
     }
 
     @Override
@@ -122,5 +105,18 @@ public class LinkedLinearTable<T> implements LinearTable<T> {
             n = n.next;
         }
         System.out.println();
+    }
+
+    private class Node {
+        private T t;
+        private Node next;
+
+        public Node() {
+        }
+
+        public Node(T t, Node next) {
+            this.t = t;
+            this.next = next;
+        }
     }
 }

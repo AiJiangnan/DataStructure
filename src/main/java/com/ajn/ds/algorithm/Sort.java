@@ -131,7 +131,7 @@ public class Sort {
         print(quicklySort(e, 0, a.length - 1));
     }
 
-    private static void print(int[] ints) {
-        System.out.println(Arrays.toString(ints));
+    private static void print(int[] data) {
+        System.out.println(Arrays.toString(data));
     }
 }

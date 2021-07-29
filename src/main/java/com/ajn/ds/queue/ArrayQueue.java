@@ -12,21 +12,20 @@ public class ArrayQueue<T> implements Queue<T> {
     private int rear = 0;
     private int size = 0;
 
-    private Object[] elementData;
+    private final Object[] elementData;
 
     public ArrayQueue(int size) {
         this.elementData = new Object[size];
     }
 
     @Override
-    public boolean add(T t) {
+    public void add(T t) {
         if (front == rear && size == elementData.length) {
             throw new ArrayIndexOutOfBoundsException();
         }
         elementData[rear] = t;
         rear = (rear + 1) % elementData.length;
         size++;
-        return true;
     }
 
     @SuppressWarnings("unchecked")

@@ -12,20 +12,19 @@ public class ArrayStack<T> implements Stack<T> {
 
     private int size = 0;
 
-    private Object[] elementData;
+    private final Object[] elementData;
 
     public ArrayStack(int size) {
         this.elementData = new Object[size];
     }
 
     @Override
-    public boolean push(T t) {
+    public void push(T t) {
         if (top > elementData.length - 1) {
             throw new ArrayIndexOutOfBoundsException();
         }
         elementData[++top] = t;
         size++;
-        return true;
     }
 
     @SuppressWarnings("unchecked")

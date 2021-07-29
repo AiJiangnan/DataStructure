@@ -9,7 +9,7 @@ public interface Queue<T> {
     /**
      * 入队
      */
-    boolean add(T t);
+    void add(T t);
 
     /**
      * 出队

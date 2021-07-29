@@ -26,7 +26,7 @@ public class LinkedQueue<T> implements Queue<T> {
     }
 
     @Override
-    public boolean add(T t) {
+    public void add(T t) {
         Node n = new Node(t, null);
         if (rear != null) {
             rear.next = n;
@@ -36,7 +36,6 @@ public class LinkedQueue<T> implements Queue<T> {
         }
         rear = n;
         size++;
-        return false;
     }
 
     @Override

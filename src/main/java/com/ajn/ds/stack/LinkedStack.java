@@ -24,14 +24,13 @@ public class LinkedStack<T> implements Stack<T> {
     }
 
     @Override
-    public boolean push(T t) {
+    public void push(T t) {
         Node n = new Node(t, null);
         if (head != null) {
             n.next = head;
         }
         head = n;
         size++;
-        return true;
     }
 
     @Override

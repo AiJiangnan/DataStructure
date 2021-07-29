@@ -17,9 +17,8 @@ public class ArrayLinearTable<T> implements LinearTable<T> {
     }
 
     @Override
-    public LinearTable<T> init(T... t) {
+    public void init(T... t) {
         elementData = t;
-        return this;
     }
 
     @Override
@@ -28,11 +27,8 @@ public class ArrayLinearTable<T> implements LinearTable<T> {
     }
 
     @Override
-    public boolean clear() {
-        for (int i = 0; i < elementData.length; i++) {
-            elementData[i] = null;
-        }
-        return true;
+    public void clear() {
+        Arrays.fill(elementData, null);
     }
 
     @Override
@@ -41,27 +37,25 @@ public class ArrayLinearTable<T> implements LinearTable<T> {
     }
 
     @Override
-    public boolean insert(int pos, T t) {
+    public void insert(int pos, T t) {
         if (pos > elementData.length - 1) {
             throw new ArrayIndexOutOfBoundsException();
         }
-        for (int i = elementData.length - 1; i > pos; i--) {
-            elementData[i] = elementData[i - 1];
+        if (elementData.length - 1 - pos >= 0) {
+            System.arraycopy(elementData, pos, elementData, pos + 1, elementData.length - 1 - pos);
         }
         elementData[pos] = t;
-        return true;
     }
 
     @Override
-    public boolean delete(int pos) {
+    public void delete(int pos) {
         if (pos > elementData.length - 1) {
             throw new ArrayIndexOutOfBoundsException();
         }
-        for (int i = pos; i < elementData.length - 1; i++) {
-            elementData[i] = elementData[i + 1];
+        if (elementData.length - 1 - pos >= 0) {
+            System.arraycopy(elementData, pos + 1, elementData, pos, elementData.length - 1 - pos);
         }
         elementData[elementData.length - 1] = null;
-        return true;
     }
 
     @SuppressWarnings("unchecked")

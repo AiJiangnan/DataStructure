@@ -11,7 +11,7 @@ public interface LinearTable<T> {
     /**
      * 初始化线性表数据
      */
-    LinearTable<T> init(T... t);
+    void init(T... t);
 
     /**
      * 判断线性表是否为空
@@ -21,7 +21,7 @@ public interface LinearTable<T> {
     /**
      * 清空线性表
      */
-    boolean clear();
+    void clear();
 
     /**
      * 返回线性表的大小
@@ -31,12 +31,12 @@ public interface LinearTable<T> {
     /**
      * 插入数据元素
      */
-    boolean insert(int pos, T t);
+    void insert(int pos, T t);
 
     /**
      * 删除数据元素
      */
-    boolean delete(int pos);
+    void delete(int pos);
 
     /**
      * 通过位置查找数据元素
