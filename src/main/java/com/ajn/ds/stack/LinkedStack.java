@@ -10,19 +10,6 @@ public class LinkedStack<T> implements Stack<T> {
 
     private int size = 0;
 
-    private class Node {
-        private T t;
-        private Node next;
-
-        public Node() {
-        }
-
-        public Node(T t, Node next) {
-            this.t = t;
-            this.next = next;
-        }
-    }
-
     @Override
     public void push(T t) {
         Node n = new Node(t, null);
@@ -57,5 +44,18 @@ public class LinkedStack<T> implements Stack<T> {
             n = n.next;
         }
         System.out.println();
+    }
+
+    private class Node {
+        private T t;
+        private Node next;
+
+        public Node() {
+        }
+
+        public Node(T t, Node next) {
+            this.t = t;
+            this.next = next;
+        }
     }
 }
