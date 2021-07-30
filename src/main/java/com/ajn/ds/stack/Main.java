@@ -1,5 +1,7 @@
 package com.ajn.ds.stack;
 
+import java.util.Stack;
+
 /**
  * @author 艾江南
  * @date 4/27/2020
@@ -7,15 +9,16 @@ package com.ajn.ds.stack;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(evaluate("10 + 2 * 6"));
-        System.out.println(evaluate("100 * 2 + 12"));
-        System.out.println(evaluate("100 * ( 2 + 12 )"));
-        System.out.println(evaluate("100*(2+12)/14"));
-        System.out.println(toBinaryString(3));
+        System.out.printf("%5d -> 0b%s\n", 3, toBinaryString(3));
+        System.out.printf("%5d -> 0b%s\n", 10, toBinaryString(10));
+        System.out.printf("%5d -> 0b%s\n", 65535, toBinaryString(65535));
+        System.out.printf("%s = %d\n", "100 * 2 + 12", evaluate("100 * 2 + 12"));
+        System.out.printf("%s = %d\n", "100 * ( 2 + 12 )", evaluate("100 * ( 2 + 12 )"));
+        System.out.printf("%s = %d\n", "100 * ( 2 + 12 ) / 14", evaluate("100 * ( 2 + 12 ) / 14"));
     }
 
     public static String toBinaryString(int num) {
-        Stack<Integer> stack = new LinkedStack<>();
+        Stack<Integer> stack = new Stack<>();
 
         while (num > 0) {
             stack.push(num % 2);
@@ -31,8 +34,8 @@ public class Main {
     }
 
     public static int evaluate(String expression) {
-        Stack<Integer> numStack = new LinkedStack<>();
-        Stack<Character> opStack = new LinkedStack<>();
+        Stack<Integer> numStack = new Stack<>();
+        Stack<Character> opStack = new Stack<>();
         char[] chars = expression.toCharArray();
         for (int i = 0; i < chars.length; i++) {
             if (chars[i] >= '0' && chars[i] <= '9') {
@@ -45,17 +48,13 @@ public class Main {
             } else if (chars[i] == '(') {
                 opStack.push(chars[i]);
             } else if (chars[i] == ')') {
-                char op;
-                while ((op = opStack.pop()) != '(') {
-                    numStack.push(calculate(op, numStack.pop(), numStack.pop()));
+                while (opStack.peek() != '(') {
+                    numStack.push(calculate(opStack.pop(), numStack.pop(), numStack.pop()));
                 }
+                opStack.pop();
             } else if (chars[i] == '+' || chars[i] == '-' || chars[i] == '*' || chars[i] == '/') {
-                if (!opStack.isEmpty()) {
-                    char op = opStack.pop();
-                    opStack.push(op);
-                    while (!opStack.isEmpty() && hasPrecedence(chars[i], op)) {
-                        numStack.push(calculate(opStack.pop(), numStack.pop(), numStack.pop()));
-                    }
+                while (!opStack.isEmpty() && hasPrecedence(chars[i], opStack.peek())) {
+                    numStack.push(calculate(opStack.pop(), numStack.pop(), numStack.pop()));
                 }
                 opStack.push(chars[i]);
             }
