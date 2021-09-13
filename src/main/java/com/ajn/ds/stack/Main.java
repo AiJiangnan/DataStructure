@@ -37,6 +37,7 @@ public class Main {
         Stack<Integer> numStack = new Stack<>();
         Stack<Character> opStack = new Stack<>();
         char[] chars = expression.toCharArray();
+
         for (int i = 0; i < chars.length; i++) {
             if (chars[i] >= '0' && chars[i] <= '9') {
                 StringBuilder num = new StringBuilder();
@@ -59,6 +60,7 @@ public class Main {
                 opStack.push(chars[i]);
             }
         }
+
         while (!opStack.isEmpty()) {
             numStack.push(calculate(opStack.pop(), numStack.pop(), numStack.pop()));
         }
