@@ -1,5 +1,7 @@
 package com.ajn.ds.complexity;
 
+import java.util.Arrays;
+
 /**
  * @author 艾江南
  * @date 2020/4/24
@@ -60,6 +62,9 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        System.out.println(abs(-10));
+        System.out.println(sum(new int[]{1, 2, 3, 4, 5}));
+        System.out.println(Arrays.toString(bubbleSort(new int[]{5, 4, 3, 2, 1})));
         System.out.println(binarySearch(new int[]{1, 2, 5, 6, 9, 10}, 9));
     }
 }

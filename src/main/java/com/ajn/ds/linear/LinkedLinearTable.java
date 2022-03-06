@@ -11,15 +11,14 @@ public class LinkedLinearTable<T> implements LinearTable<T> {
     private Node head;
     private int size = 0;
 
-    @Override
-    public void init(T... t) {
-        if (t == null || t.length == 0) {
+    public LinkedLinearTable(T[] array) {
+        if (array == null || array.length == 0) {
             return;
         }
-        head = new Node(t[size++], null);
+        head = new Node(array[size++], null);
         Node pre = head;
-        for (int i = 1; i < t.length; i++) {
-            pre.next = new Node(t[i], null);
+        for (int i = 1; i < array.length; i++) {
+            pre.next = new Node(array[i], null);
             pre = pre.next;
             size++;
         }

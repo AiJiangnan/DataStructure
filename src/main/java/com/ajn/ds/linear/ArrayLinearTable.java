@@ -10,15 +10,10 @@ import java.util.Arrays;
  */
 public class ArrayLinearTable<T> implements LinearTable<T> {
 
-    private Object[] elementData;
+    private final Object[] elementData;
 
-    public ArrayLinearTable(int size) {
-        elementData = new Object[size];
-    }
-
-    @Override
-    public void init(T... t) {
-        elementData = t;
+    public ArrayLinearTable(T[] array) {
+        this.elementData = array;
     }
 
     @Override

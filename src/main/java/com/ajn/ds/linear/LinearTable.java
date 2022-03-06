@@ -9,11 +9,6 @@ package com.ajn.ds.linear;
 public interface LinearTable<T> {
 
     /**
-     * 初始化线性表数据
-     */
-    void init(T... t);
-
-    /**
      * 判断线性表是否为空
      */
     boolean empty();
