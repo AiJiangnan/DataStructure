@@ -13,20 +13,7 @@ public class LinkedBinaryTree<T> implements BinaryTree<T> {
 
     private Node root;
 
-    private class Node {
-        private final T data;
-        private Node left;
-        private Node right;
-
-        public Node(T data, Node left, Node right) {
-            this.data = data;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
-    @Override
-    public void init(T[] arr) {
+    public LinkedBinaryTree(T[] arr) {
         if (arr == null || arr.length == 0) {
             return;
         }
@@ -73,22 +60,6 @@ public class LinkedBinaryTree<T> implements BinaryTree<T> {
     @Override
     public void postOrderTraverse() {
         postOrderTraverse(root);
-    }
-
-    @Override
-    public void levelOrderTraverse() {
-        Queue<Node> queue = new LinkedList<>();
-        queue.offer(root);
-        while (!queue.isEmpty()) {
-            Node node = queue.poll();
-            operate(node);
-            if (node.left != null) {
-                queue.offer(node.left);
-            }
-            if (node.right != null) {
-                queue.offer(node.right);
-            }
-        }
     }
 
     private int nodeCount(Node node) {
@@ -144,5 +115,34 @@ public class LinkedBinaryTree<T> implements BinaryTree<T> {
 
     private void operate(Node node) {
         System.out.print(node.data + " ");
+    }
+
+    @Override
+    public void levelOrderTraverse() {
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            Node node = queue.poll();
+            operate(node);
+            if (node.left != null) {
+                queue.offer(node.left);
+            }
+            if (node.right != null) {
+                queue.offer(node.right);
+            }
+        }
+    }
+
+    private class Node {
+
+        private final T data;
+        private Node left;
+        private Node right;
+
+        public Node(T data, Node left, Node right) {
+            this.data = data;
+            this.left = left;
+            this.right = right;
+        }
     }
 }

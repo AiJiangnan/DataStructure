@@ -7,11 +7,6 @@ package com.ajn.ds.tree;
 public interface BinaryTree<T> {
 
     /**
-     * 初始化树
-     */
-    void init(T[] arr);
-
-    /**
      * 计算节点个数
      */
     int nodeCount();

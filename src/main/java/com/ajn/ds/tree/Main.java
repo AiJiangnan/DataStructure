@@ -7,8 +7,7 @@ package com.ajn.ds.tree;
 public class Main {
 
     public static void main(String[] args) {
-        BinaryTree<Integer> tree = new LinkedBinaryTree<>();
-        tree.init(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
+        BinaryTree<Integer> tree = new LinkedBinaryTree<>(new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
         System.out.println(tree.nodeCount());
         System.out.println(tree.leafNodeCount());
         System.out.println(tree.depth());
