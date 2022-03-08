@@ -9,6 +9,13 @@ import java.util.Stack;
 public class Main {
 
     public static void main(String[] args) {
+        operate();
+    }
+
+    /**
+     * 表达式求值
+     */
+    private static void operate() {
         System.out.printf("%5d -> 0b%s\n", 3, toBinaryString(3));
         System.out.printf("%5d -> 0b%s\n", 10, toBinaryString(10));
         System.out.printf("%5d -> 0b%s\n", 65535, toBinaryString(65535));
